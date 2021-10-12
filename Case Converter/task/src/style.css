@@ -1,0 +1,11 @@
+button {
+    background-color: coral;
+    border: 0px;
+    border-radius: 4px;
+    height: 2em;
+}
+
+textarea {
+    width: 500px;
+    height: 200px;
+}
