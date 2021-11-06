@@ -1,8 +1,12 @@
+const sentenceSplitter = /\.\s*(\S)/gmi;
+const wordSplitter = /\s+(\S)/gmi;
+
 document.getElementById("upper-case")
     .addEventListener("click", function () {
         let text = document.getElementById("text").value;
         document.getElementById("text").value = text.toUpperCase();
     });
+
 
 document.getElementById("lower-case")
     .addEventListener("click", function () {
@@ -10,34 +14,30 @@ document.getElementById("lower-case")
         document.getElementById("text").value = text.toLowerCase();
     });
 
+
 document.getElementById("proper-case")
     .addEventListener("click", function () {
         const text = document.getElementById("text").value;
-        const words = text.split(" ");
+        let result = text.replace(wordSplitter, (firstLetter) => firstLetter.toUpperCase());
 
-        const result = [];
-        for (let word of words) {
-            result.push(word[0].toUpperCase() + word.slice(1).toLowerCase());
-        }
-        document.getElementById("text").value = result.join(" ");
+        document.getElementById("text").value = result[0].toUpperCase() + result.slice(1);
     });
+
 
 document.getElementById("sentence-case")
     .addEventListener("click", function () {
         const text = document.getElementById("text").value;
-        const sentences = text.split(". ");
+        let result = text.replace(sentenceSplitter, (firstLetter) => firstLetter.toUpperCase());
 
-        const result = [];
-        for (let sentence of sentences) {
-            result.push(sentence[0].toUpperCase() + sentence.slice(1).toLowerCase());
-        }
-        document.getElementById("text").value = result.join(". ");
+        document.getElementById("text").value = result[0].toUpperCase() + result.slice(1);
     });
+
 
 document.getElementById("save-text-file")
     .addEventListener("click", function () {
         download("text.txt", document.getElementById("text").value);
     });
+
 
 function download(filename, text) {
     let element = document.createElement('a');
