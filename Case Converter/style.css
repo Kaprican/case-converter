@@ -1,0 +1,21 @@
+h1 {
+    font-size: 3em;
+}
+
+button {
+    background-color: coral;
+    border: 0px;
+    border-radius: 4px;
+    padding: .5em 1em;
+    margin: 0 .5em 0 0;
+}
+
+textarea {
+    width: 50vw;
+    height: 40vh;
+    margin: 1vmax 0;
+}
+
+.container {
+    margin: 5vmax 7vmax;
+}
